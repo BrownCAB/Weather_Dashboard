@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <title>Weather Forecast</title>
+</head>
+<body>
+    <!--HEADER-->
+    <header class="container-fluid text-center text-white bg-dark p-2">
+        <h1>Weather Forecast</h1>
+    </header>
+
+    <!--SEARCH AREA-->
+    <aside class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 bg-light">
+                <h2 class="mt-1">Search for a City:</h2>
+                <div class="input-group mb-3">
+                    <input id="enter-city" type="text" class="form-control" placeholder="Enter a city" aria-label="Enter a city">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div> 
+        </div>  
+    
+    <hr style="width:50%;text-align:left;margin-left:0">
+    
+            <div class="btn-cities">
+                <button>A</button>
+                <button>B</button>
+                <button>C</button>
+                <button>D</button>
+                <button>E</button>
+                <button>F</button>
+            </div>
+    </aside>
+   
+    <main class="city-forcast">
+        <div class="city-container border border-dark">
+            <!--Weather at the end of h2, Icon needs to be generated with JS-->
+            <h2 class="city-choosen">Auston (00/00/00) [Weather Icon here!]</h2>
+            <p class="Temp">Temp:</p>
+            <p class="Wind">Wind:</p>
+            <p class="Humidity">Humidity:</p>
+            <!--UV Background color needs to be generated with JS-->
+            <p class="UV Index">UV:</p>
+        </div>
+        <div class="five-Day">
+            <div class="day-one">
+            <h5 class="Date">00/00/00</h5>
+            <i class=""><!-- Generate Weather Icon here!--></i>
+            <p class="Temp">Temp:</p>
+            <p class="Wind">Wind:</p>
+            <p class="Humidity">Humidity:</p>
+        </div>
+            <div class="day-two">
+                <h5 class="Date">00/00/00</h5>
+                <i class=""><!--Weather Icon here!--></i>
+                <p class="Temp">Temp:</p>
+                <p class="Wind">Wind:</p>
+                <p class="Humidity">Humidity:</p>
+            </div>
+            <div class="day-three">
+                <h5 class="Date">00/00/00</h5>
+                <i class=""><!--Weather Icon here!--></i>
+                <p class="Temp">Temp:</p>
+                <p class="Wind">Wind:</p>
+                <p class="Humidity">Humidity:</p>
+            </div>
+            <div class="day-four">
+                <h5 class="Date">00/00/00</h5>
+                <i class=""><!--Weather Icon here!--></i>
+                <p class="Temp">Temp:</p>
+                <p class="Wind">Wind:</p>
+                <p class="Humidity">Humidity:</p>
+            </div>
+            <div class="day-five">
+                <h5 class="Date">00/00/00</h5>
+                <i class=""><!--Weather Icon here!--></i>
+                <p class="Temp">Temp:</p>
+                <p class="Wind">Wind:</p>
+                <p class="Humidity">Humidity:</p>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+
+
+  
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
