@@ -4,101 +4,106 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
     <title>Weather_Dashboard</title>
 </head>
 
 <body>
     <!--HEADER-->
-    <header class="container-fluid text-center text-white bg-dark p-2">
+    <header class="container-fluid text-center text-white bg-primary p-2">
         <h1>Weather DashBoard</h1>
     </header>
 
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-3">
+    <div class="col-sm-12 col-md-6 col-lg-3 pl-lg-5 pl-md-3 pt-3">
     
   <!--SEARCH AREA-->
-  <h3 class="mt-1">Search for a City:</h3>
-    <div class="input-group mb-3">
-      <input id="enter-city" type="text" class="form-control" placeholder="Enter a city" aria-label="Enter a city">
-    <div class="input-group-append">
-        <button class="btn btn-primary" type="button" id="search-button">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-    </div>
-
-  <hr style="width:50%;text-align:left;margin-left:0">
+  <h3>Search for a City:</h3>
+  <div class="input">
+    <input type="text" class="form-control" id="inputValue" placeholder="Enter a City...">
+    <button class="btn btn-primary btn-block" id="search" type="submit" value="submit">Search</button>
+  </div>
+  
+  <hr style="width:100%">
   
   <!-- City Buttons -->
   
-    <button type="button" class="btn btn-secondary btn-block">New York City</button>
-    <button type="button" class="btn btn-secondary btn-block">Los Angeles</button>
-    <button type="button" class="btn btn-secondary btn-block">Houston</button>
-    <button type="button" class="btn btn-secondary btn-block">Philadephia</button>
-    <button type="button" class="btn btn-secondary btn-block">Atlanta</button>
-    <button type="button" class="btn btn-secondary btn-block">Miami</button>
-    <button type="button" class="btn btn-secondary btn-block">Phoenix</button>
-    <button type="button" class="btn btn-secondary btn-block">Boston</button> 
+    <button type="button" class="btn btn-secondary btn-block">Local Storage</button>
+    <button type="button" class="btn btn-secondary btn-block">Local Storage</button>
+    <button type="button" class="btn btn-secondary btn-block">Local Storage</button>
+    <button type="button" class="btn btn-secondary btn-block">Local Storage</button>
+    <!--<button type="button" class="btn btn-secondary btn-block">Local Storage</button>-->
+    <!--<button type="button" class="btn btn-secondary btn-block">Local Storage</button>-->
+    <!--<button type="button" class="btn btn-secondary btn-block">Local Storage</button>-->
+    <!--<button type="button" class="btn btn-secondary btn-block">Local Storage</button> -->
     
-</div> <!-- Column-1 Div -->
+</div> <!-- End of Column-1 Div -->
     
-    <div class="col-sm-12 col-md-6 col-lg-9"> 
-      <div class="city-container border border-dark">
+    <div class="col-sm-12 col-md-6 col-lg-9 pt-3 pr-lg-5 pr-md-3"> 
+      <div class="location-container border border-dark">
             <!-- City choosen and current forcast -->
-            <h2 class="city-choosen">Auston (00/00/00) [Generate Weather Icon here!]</h2>
-            <p class="Temp">Temp:</p>
-            <p class="Wind">Wind:</p>
-            <p class="Humidity">Humidity:</p>
+            <div class="city"><h2>City (00/00/00)<i class="mainIcon">icon</i></h2></div>
+            <p class="mainTemp">Temp:</p>
+            <p class="mainWind">Wind:</p>
+            <p class="mainHumid">Humidity:</p>
             <!--UV Background color needs to be generated with JS-->
-            <p class="UV Index">UV:</p>
+            <p class="mainUv">UV:</p>
         </div>
         
       <!-- 5 Day Forcast -->  
-      <h2>5-Day forecast</h2>
+      <h2 class="five-day pt-3">5-Day Forecast</h2>
         <div class="card-deck">
         
-          <div class="day-one card-body">
-            <h5 class="Date card-title">00/00/00</h5>
+          <div class="day-one card-body" id="1">
+            <h5 class="date card-title">00/00/00</h5>
             <i class="icon card-img"><!-- Generate Weather Icon here!--></i>
-            <p class="Temp card-text">Temp:</p>
-            <p class="Wind card-text">Wind:</p>
-            <p class="Humidity card-text">Humidity:</p>
+            <p class="temp card-text">Temp:</p>
+            <p class="wind card-text">Wind:</p>
+            <p class="humid card-text">Humidity:</p>
           </div>
-          <div class="day-two card-body">
-          <h5 class="Date card-title">00/00/00</h5>
+          <div class="day-two card-body" id="2">
+          <h5 class="date card-title">00/00/00</h5>
             <i class="icon card-img"><!--Weather Icon here!--></i>
-            <p class="Temp card-text">Temp:</p>
-            <p class="Wind card-text">Wind:</p>
-            <p class="Humidity card-text">Humidity:</p>
+            <p class="temp card-text">Temp:</p>
+            <p class="wind card-text">Wind:</p>
+            <p class="humid card-text">Humidity:</p>
           </div>
-          <div class="day-three card-body">
-            <h5 class="Date card-title">00/00/00</h5>
+          <div class="day-three card-body" id="3">
+            <h5 class="date card-title">00/00/00</h5>
             <i class="icon card-image"><!--Weather Icon here!--></i>
-            <p class="Temp card-text">Temp:</p>
-            <p class="Wind card-text">Wind:</p>
-            <p class="Humidity card-text">Humidity:</p>
+            <p class="temp card-text">Temp:</p>
+            <p class="wind card-text">Wind:</p>
+            <p class="humid card-text">Humidity:</p>
           </div>
-          <div class="day-four card-body">
-            <h5 class="Date card-title">00/00/00</h5>
+          <div class="day-four card-body" id="4">
+            <h5 class="date card-title">00/00/00</h5>
             <i class="icon card-img"><!--Weather Icon here!--></i>
-            <p class="Temp card-text">Temp:</p>
-            <p class="Wind card-text">Wind:</p>
-            <p class="Humidity card-text">Humidity:</p>
+            <p class="temp card-text">Temp:</p>
+            <p class="wind card-text">Wind:</p>
+            <p class="humid card-text">Humidity:</p>
           </div>
-          <div class="day-five card-body">
-            <h5 class="Date card-title">00/00/00</h5>
+          <div class="day-five card-body" id="5">
+            <h5 class="date card-title">00/00/00</h5>
             <i class="icon card-img"><!--Weather Icon here!--></i>
-            <p class="Temp card-text">Temp:</p>
-            <p class="Wind card-text">Wind:</p>
-            <p class="Humidity card-text">Humidity:</p>
+            <p class="temp card-text">Temp:</p>
+            <p class="wind card-text">Wind:</p>
+            <p class="humid card-text">Humidity:</p>
           </div>
         </div> 
     
-    </div> <!-- Column-2 Div -->
+    </div> <!-- End of Column-2 Div -->
 
-</div> <!-- Row Div -->
+</div> <!-- End of Row Div -->
 
     <script src="./assets/js/script.js"></script>
 </body>
