@@ -1,64 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./assets/css/styles.css" />
 
     <title>Weather_Dashboard</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--HEADER-->
     <header class="container-fluid text-center text-white bg-primary p-2">
-        <h1>Weather DashBoard</h1>
+      <h1>Weather DashBoard</h1>
     </header>
 
-<div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-3 pl-lg-5 pl-md-3 pt-3">
-    
-  <!--SEARCH AREA-->
-  <h3>Search for a City:</h3>
-  <div class="input">
-    <input type="text" class="form-control" id="inputValue" placeholder="Enter a City...">
-    <button class="btn btn-primary btn-block" id="searchBtn" type="submit" value="submit">Search</button>
-  </div>
-  
-  <hr style="width:100%">
-  
-  <!-- City Buttons -->
-  
-    <button type="button" class="btn btn-secondary btn-block" id="cityBtn">Local Storage</button>
-    <button type="button" class="btn btn-secondary btn-block" id="cityBtn">Local Storage</button>
-    <button type="button" class="btn btn-secondary btn-block" id="cityBtn">Local Storage</button>
-  
-</div> <!-- End of Column-1 Div -->
-    
-    <div class="col-sm-12 col-md-6 col-lg-9 pt-3 pr-lg-5 pr-md-3"> 
-      <div class="location-container border border-dark">
-            <!-- City choosen and current forcast -->
-            <div class="cityName"><h2>City (00/00/00)<i class="mainIcon">icon</i></h2></div>
-            <p class="mainTemp">Temp:</p>
-            <p class="mainWind">Wind:</p>
-            <p class="mainHumid">Humidity:</p>
-            <!--UV Background color needs to be generated with JS-->
-            <p class="mainUv">UV:</p>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-3 pl-lg-5 pl-md-3 pt-3">
+        <!--SEARCH AREA-->
+        <h3>Search for a City:</h3>
+        <div class="input">
+          <input
+            type="text"
+            class="form-control"
+            id="inputValue"
+            placeholder="Enter a City..."
+          />
+          <button
+            class="btn btn-primary btn-block"
+            id="searchBtn"
+            type="submit"
+            value="submit"
+          >
+            Search
+          </button>
         </div>
-        
-      <!-- 5 Day Forcast -->  
-      <h2 class="five-day pt-3">5-Day Forecast</h2>
+
+        <hr style="width: 100%" />
+
+        <!-- City Buttons -->
+
+        <button type="button" class="btn btn-secondary btn-block" id="cityBtn">
+          Local Storage
+        </button>
+        <button type="button" class="btn btn-secondary btn-block" id="cityBtn">
+          Local Storage
+        </button>
+        <button type="button" class="btn btn-secondary btn-block" id="cityBtn">
+          Local Storage
+        </button>
+      </div>
+      <!-- End of Column-1 Div -->
+
+      <div class="col-sm-12 col-md-6 col-lg-9 pt-3 pr-lg-5 pr-md-3">
+        <div class="location-container border border-dark">
+          <!-- City choosen and current forcast -->
+          <div class="cityName">
+            <h2>City (00/00/00)<i class="mainIcon">icon</i></h2>
+          </div>
+          <p class="mainTemp">Temp:</p>
+          <p class="mainWind">Wind:</p>
+          <p class="mainHumid">Humidity:</p>
+          <!--UV Background color needs to be generated with JS-->
+          <p class="mainUv">UV:</p>
+        </div>
+
+        <!-- 5 Day Forcast -->
+        <h2 class="five-day pt-3">5-Day Forecast</h2>
         <div class="card-deck">
-        
           <div class="day-one card-body" id="1">
             <h5 class="date card-title">00/00/00</h5>
             <i class="icon card-img"><!-- Generate Weather Icon here!--></i>
@@ -67,7 +95,7 @@
             <p class="humid card-text">Humidity:</p>
           </div>
           <div class="day-two card-body" id="2">
-          <h5 class="date card-title">00/00/00</h5>
+            <h5 class="date card-title">00/00/00</h5>
             <i class="icon card-img"><!--Weather Icon here!--></i>
             <p class="temp card-text">Temp:</p>
             <p class="wind card-text">Wind:</p>
@@ -94,12 +122,14 @@
             <p class="wind card-text">Wind:</p>
             <p class="humid card-text">Humidity:</p>
           </div>
-        </div> 
-    
-    </div> <!-- End of Column-2 Div -->
-
-</div> <!-- End of Row Div -->
+        </div>
+      </div>
+      <!-- End of Column-2 Div -->
+    </div>
+    <!-- End of Row Div -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
