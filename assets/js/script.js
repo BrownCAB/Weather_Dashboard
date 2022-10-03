@@ -8,6 +8,10 @@ var locationContainer = document.querySelector(".location-container");
 
 var cardDeck = document.querySelector(".card-deck");
 
+var searchHistory = document.querySelector('#cityBtn');
+var clearHistory = document.querySelector('#cityBtn');
+
+
 //API Varibales
 var APIKey = "f6862802cdafd2f8859444a3108a7a22";
 
@@ -34,20 +38,21 @@ searchBtn.addEventListener("click", function () {
     });
 });
 
+
 function showCurrentWeather(data) {
-  var cityName = document.createElement("div");
+  var cityName = document.createElement("h2");
   var date = document.createElement("div");
   var mainIcon = document.createElement("img");
   var mainTemp = document.createElement("p");
   var mainWind = document.createElement("p");
   var mainHumid = document.createElement("p");
-  var mainUv = document.createElement("p");
+
   cityName.textContent = data.name;
   date.textContent = data.dt;
   mainIcon.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-  mainTemp.textContent = data.main.temp;
-  mainWind.textContent = data.wind.speed;
-  mainHumid.textContent = data.main.humidity;
+  mainTemp.textContent = "Temp: " + data.main.temp;
+  mainWind.textContent = "Wind: " + data.wind.speed;
+  mainHumid.textContent = "Humidity: " + data.main.humidity;
 
   cityNameContainer.append(cityName, date, mainIcon);
   locationContainer.append(mainTemp, mainWind, mainHumid);
@@ -64,17 +69,18 @@ function showFiveDay(lat, lon) {
       console.log(data);
       for (let i = 7; i < data.list.length; i += 7) {
         var card = document.createElement("div");
-        var date = document.createElement("div");
+        card.className += "card-body";
+        var date = document.createElement("h5");
         var mainIcon = document.createElement("img");
         var mainTemp = document.createElement("p");
         var mainWind = document.createElement("p");
         var mainHumid = document.createElement("p");
 
-        date.textContent = data.list[i].dt;
+        date.textContent = data.list[i].dt_txt;
         mainIcon.src = `https://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`;
-        mainTemp.textContent = data.list[i].main.temp;
-        mainWind.textContent = data.list[i].wind.speed;
-        mainHumid.textContent = data.list[i].main.humidity;
+        mainTemp.textContent = "Temp: " + data.list[i].main.temp;
+        mainWind.textContent = "Wind: " + data.list[i].wind.speed;
+        mainHumid.textContent = "Humidity: " + data.list[i].main.humidity;
 
         card.append(date, mainIcon, mainTemp, mainWind, mainHumid);
         cardDeck.append(card);
@@ -84,6 +90,8 @@ function showFiveDay(lat, lon) {
     .catch((err) => console.log(err));
 }
 
-// Save data into Local Storage
+// Save data into Local Storage as button
+function renderHistory() {
+  
+}
 
-//

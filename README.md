@@ -18,14 +18,14 @@ I learned the fundamentals of Sever-side api
 
 
 Screenshoot
-![screenshot](assets/images/horiseon.png)
+![screenshot](assets/images/sceenshot.png)
 
 Deployed project link
 https://browncab.github.io/Weather_Dashboard/
 
 
 Credits
-2u tutor, TA, and Instructor
+2u tutor, TA, Stackoverflow and Instructor
 
 License
 Please refer to the LICENSE in the repo.

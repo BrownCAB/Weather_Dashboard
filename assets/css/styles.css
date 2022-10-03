@@ -8,3 +8,13 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+.card-body {
+    background-color: #6699CC;
+    margin:10px;
+    border-radius: 10px;
+}
+
+.location-container {
+    border-radius: 10px;
+}
