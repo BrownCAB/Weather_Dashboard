@@ -3,31 +3,30 @@ var inputValue = $("#inputValue");
 var searchBtn = document.querySelector("#searchBtn");
 var saveSearch = "#search";
 
-
 var locationContainer = document.querySelector(".location-container");
 
 var cardDeck = document.querySelector(".card-deck");
 
-var searchHistory = document.querySelector('#history');
-var clearHistory = document.querySelector('#cityBtn');
+var searchHistory = document.querySelector("#citiesHistory");
 
-var citiesArray
+var clearCities = document.getElementById('#clearBtn');
 
+var citiesArray;
 
 
 //API Varibales
 var APIKey = "f6862802cdafd2f8859444a3108a7a22";
 
 function weatherHistory(event) {
-  event.preventDefault()
-  var input
+  event.preventDefault();
+  var input;
   if (event.target.matches(".citiesBtn")) {
-    console.dir(event.target)
-    input = event.target.innerText
-  }else{
+    console.dir(event.target);
+    input = event.target.innerText;
+  } else {
     input = inputValue.val().trim();
   }
-  console.log(input)
+  console.log(input);
   var queryURL =
     "http://api.openweathermap.org/data/2.5/weather?q=" +
     input +
@@ -42,24 +41,21 @@ function weatherHistory(event) {
       console.log(data);
       showCurrentWeather(data);
       showFiveDay(data.coord.lat, data.coord.lon);
-      saveCity(input)
+      saveCity(input);
     })
 
     .catch((err) => {
       console.log(err);
     });
-    inputValue.val("")
-};
-
-
+  inputValue.val("");
+}
 
 // event listner and fetch for current Forcast
 searchBtn.addEventListener("click", weatherHistory);
 
-
 function showCurrentWeather(data) {
   locationContainer.innerHTML = "";
-  var cityNameContainer = document.createElement("div")
+  var cityNameContainer = document.createElement("div");
   var cityName = document.createElement("h2");
   var date = document.createElement("div");
   var mainIcon = document.createElement("img");
@@ -68,7 +64,7 @@ function showCurrentWeather(data) {
   var mainHumid = document.createElement("p");
 
   cityName.textContent = data.name;
-  var todayDate = new Date(data.dt*1000)
+  var todayDate = new Date(data.dt * 1000);
   date.textContent = todayDate.toLocaleDateString("en-US");
   mainIcon.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
   mainTemp.textContent = "Temp: " + data.main.temp;
@@ -115,11 +111,11 @@ function showFiveDay(lat, lon) {
 function saveCity(city) {
   for (let i = 0; i < citiesArray.length; i++) {
     if (citiesArray[i] === city) {
-      return
+      return;
     }
   }
-  citiesArray.push(city)
-  displaySavedCities()
+  citiesArray.push(city);
+  displaySavedCities();
   localStorage.setItem("cities", JSON.stringify(citiesArray));
 }
 
@@ -130,20 +126,28 @@ function displaySavedCities() {
     cityEl.textContent = citiesArray[i];
     cityEl.classList.add("btn", "btn-secondary", "btn-block", "citiesBtn");
     searchHistory.append(cityEl);
-    cityEl.addEventListener("click", weatherHistory)
+    cityEl.addEventListener("click", weatherHistory);
   }
+  console.log(searchHistory)
 }
 
 // Getting the Data from Local Storage
 function getHistory() {
-  citiesArray = localStorage.getItem("cities")
+  citiesArray = localStorage.getItem("cities");
   if (citiesArray) {
-    citiesArray = JSON.parse(citiesArray)
-  }else {
-    citiesArray = []
+    citiesArray = JSON.parse(citiesArray);
+  } else {
+    citiesArray = [];
   }
-  console.log("cities")
-  displaySavedCities()
+  console.log("cities");
+  displaySavedCities();
 }
 
-getHistory()
+getHistory();
+
+// event listener to clear cities from local storage
+clearCities = addEventListener('onClick', function() {
+  localStorage.removeItem("cities");
+});
+
+
