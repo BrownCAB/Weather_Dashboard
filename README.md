@@ -17,16 +17,16 @@ I learned the fundamentals of Sever-side api like Fetching data from an Api, imp
 5. Follow the instructions to submit the Challenge for review.
 
 
-Screenshot
+## Screenshot
 ![screenshot](assets/images/screenshot.png)
-<img scr="./assets/images/screenshot.png alt="screenshot.png>
+<img scr="assets/images/screenshot.png" alt="screenshot.png">
 
 Deployed project link
 https://browncab.github.io/Weather_Dashboard/
 
 
-Credits
+## Credits
 2u tutor, TA, Stackoverflow and Instructor
 
-License
+## License
 Please refer to the LICENSE in the repo.
