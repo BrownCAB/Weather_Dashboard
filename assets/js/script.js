@@ -7,9 +7,9 @@ var locationContainer = document.querySelector(".location-container");
 
 var cardDeck = document.querySelector(".card-deck");
 
-var searchHistory = document.querySelector("#citiesHistory");
+var searchHistory = document.getElementById("citiesHistory");
 
-var clearCities = document.getElementById('#clearBtn');
+var clearCities = document.getElementById('clearBtn');
 
 var citiesArray;
 
@@ -51,7 +51,11 @@ function weatherHistory(event) {
 }
 
 // event listner and fetch for current Forcast
-searchBtn.addEventListener("click", weatherHistory);
+// searchBtn.addEventListener("click", function(event) {
+//   event.stopPropagation()
+//   weatherHistory(event)
+// });
+$('#aside').on('click', '#searchBtn', weatherHistory)
 
 function showCurrentWeather(data) {
   locationContainer.innerHTML = "";
@@ -146,8 +150,12 @@ function getHistory() {
 getHistory();
 
 // event listener to clear cities from local storage
-clearCities = addEventListener('onClick', function() {
-  localStorage.removeItem("cities");
-});
+function removeEl () {
+//    event.preventDefault()
+//    event.stopPropagation()
+    localStorage.removeItem("cities");
+    searchHistory.innerHTML = "";
+  };
 
+$('#aside').on('click', '#clearBtn', removeEl)
 
