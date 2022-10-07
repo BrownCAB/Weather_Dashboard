@@ -18,7 +18,7 @@ I learned the fundamentals of Sever-side api like Fetching data from an Api, imp
 
 
 Screenshoot
-![screenshot](assets/images/sceenshot.png)
+![screenshot](assets/images/screenshot.png)
 
 Deployed project link
 https://browncab.github.io/Weather_Dashboard/
