@@ -7,7 +7,7 @@ This project is going to challenge my HTML, CSS, JS, and API knowledge in order 
 
 I am going solve the allow users to access weather data and functionality by making requests with specific parameters to a URL.
 
-I learned the fundamentals of Sever-side api
+I learned the fundamentals of Sever-side api like Fetching data from an Api, implementing parameters in the API url and the use of document.location to replace URL.
 
 ## Installation
 1. Create HTML, CSS, and Javascript files.
