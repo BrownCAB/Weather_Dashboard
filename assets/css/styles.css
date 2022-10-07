@@ -5,8 +5,30 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+h5, p {
+    font-weight: bold;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
+}
+
+.row {
+    margin: 0.5%;
+}
+
+#clearCities {
+    float: right;
+}
+
+.five-day {
+    padding-left: 15px;
+}
+
+.card-deck {
+    max-width: 1400px;
+    justify-content: center;
+    padding: 0 5px 0 10px;
 }
 
 .card-body {
@@ -21,3 +43,15 @@ body {
     padding: 10px;
 
 }
+
+@media screen and (max-width: 2160px) {
+    .card-deck {
+        max-width: 1500px;
+    }
+  }
+
+  @media screen and (max-width: 4320px) {
+    .card-deck {
+        max-width: 1600px;
+    }
+  }

@@ -26,42 +26,31 @@ function weatherHistory(event) {
   } else {
     input = inputValue.val().trim();
   }
-  console.log(input);
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
-    input +
-    "&appid=" +
-    APIKey +
-    "&units=imperial";
+    `http://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${APIKey}&units=imperial`;
 
-  console.log(queryURL);
   fetch(queryURL)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       showCurrentWeather(data);
       showFiveDay(data.coord.lat, data.coord.lon);
       saveCity(input);
     })
 
     .catch((err) => {
-      console.log(err);
     });
   inputValue.val("");
 }
 
-// event listner and fetch for current Forcast
-// searchBtn.addEventListener("click", function(event) {
-//   event.stopPropagation()
-//   weatherHistory(event)
-// });
+// Eventlistner for searchBtn 
 $('#aside').on('click', '#searchBtn', weatherHistory)
 
+// Fetch for current Forcast
 function showCurrentWeather(data) {
   locationContainer.innerHTML = "";
   var cityNameContainer = document.createElement("div");
   var cityName = document.createElement("h2");
-  var date = document.createElement("div");
+  var date = document.createElement("h5");
   var mainIcon = document.createElement("img");
   var mainTemp = document.createElement("p");
   var mainWind = document.createElement("p");
@@ -71,23 +60,21 @@ function showCurrentWeather(data) {
   var todayDate = new Date(data.dt * 1000);
   date.textContent = todayDate.toLocaleDateString("en-US");
   mainIcon.src = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-  mainTemp.textContent = "Temp: " + data.main.temp;
-  mainWind.textContent = "Wind: " + data.wind.speed;
-  mainHumid.textContent = "Humidity: " + data.main.humidity;
+  mainTemp.textContent = `Temp: ${data.main.temp.toFixed()}°F`;
+  mainWind.textContent = `Wind: ${data.wind.speed.toFixed()} mph`;
+  mainHumid.textContent = `Humidity: ${data.main.humidity}%`;
 
   cityNameContainer.append(cityName, date, mainIcon);
   locationContainer.append(cityNameContainer, mainTemp, mainWind, mainHumid);
 }
 
-// event listner and fetch for 5-day Forcast
+// Eventlistner and fetch for 5-day Forcast
 function showFiveDay(lat, lon) {
-  var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+  var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
 
-  console.log(queryURL);
   fetch(queryURL)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       cardDeck.innerHTML = "";
       for (let i = 7; i < data.list.length; i += 7) {
         var card = document.createElement("div");
@@ -98,20 +85,21 @@ function showFiveDay(lat, lon) {
         var mainWind = document.createElement("p");
         var mainHumid = document.createElement("p");
 
-        date.textContent = data.list[i].dt;
+        var fiveDates = new Date(data.list[i].dt * 1000);
+        date.textContent = fiveDates.toLocaleDateString("en-US");
         mainIcon.src = `https://openweathermap.org/img/w/${data.list[i].weather[0].icon}.png`;
-        mainTemp.textContent = "Temp: " + data.list[i].main.temp;
-        mainWind.textContent = "Wind: " + data.list[i].wind.speed;
-        mainHumid.textContent = "Humidity: " + data.list[i].main.humidity;
+        mainTemp.textContent = `Temp: ${data.list[i].main.temp.toFixed()}°F` ;
+        mainWind.textContent = `Wind: ${data.list[i].wind.speed.toFixed()} mph`;
+        mainHumid.textContent = `Humidity: ${data.list[i].main.humidity}%`;
 
         card.append(date, mainIcon, mainTemp, mainWind, mainHumid);
         cardDeck.append(card);
       }
-      console.log(card);
     })
     .catch((err) => console.log(err));
 }
 
+// Save city to Array
 function saveCity(city) {
   for (let i = 0; i < citiesArray.length; i++) {
     if (citiesArray[i] === city) {
@@ -123,6 +111,7 @@ function saveCity(city) {
   localStorage.setItem("cities", JSON.stringify(citiesArray));
 }
 
+// Display Array as buttons
 function displaySavedCities() {
   searchHistory.innerHTML = "";
   for (let i = 0; i < citiesArray.length; i++) {
@@ -132,7 +121,6 @@ function displaySavedCities() {
     searchHistory.append(cityEl);
     cityEl.addEventListener("click", weatherHistory);
   }
-  console.log(searchHistory)
 }
 
 // Getting the Data from Local Storage
@@ -143,19 +131,17 @@ function getHistory() {
   } else {
     citiesArray = [];
   }
-  console.log("cities");
   displaySavedCities();
 }
 
 getHistory();
 
-// event listener to clear cities from local storage
-function removeEl () {
-//    event.preventDefault()
-//    event.stopPropagation()
-    localStorage.removeItem("cities");
-    searchHistory.innerHTML = "";
-  };
+// Eventlistener to clear cities from local storage
+function removeEl() {
+	localStorage.removeItem('cities');
+	citiesArray = [];
+	searchHistory.innerHTML = '';
+}
 
 $('#aside').on('click', '#clearBtn', removeEl)
 
