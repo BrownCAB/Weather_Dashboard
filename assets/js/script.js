@@ -27,7 +27,7 @@ function weatherHistory(event) {
     input = inputValue.val().trim();
   }
   var queryURL =
-    `http://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${APIKey}&units=imperial`;
+    `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${APIKey}&units=imperial`;
 
   fetch(queryURL)
     .then((response) => response.json())
